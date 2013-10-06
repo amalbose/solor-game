@@ -15,10 +15,12 @@ import com.badlogic.gdx.math.Vector2;
 public abstract class BaseObject {
 
 	LevelScreen screen;
-	
+
 	public Shape shape;
 
 	public Vector2 bounds;
+
+	public Vector2 velocity;
 
 	Sprite sprite;
 
@@ -28,12 +30,20 @@ public abstract class BaseObject {
 
 	public BaseObject(LevelScreen screen) {
 		this.screen = screen;
+		bounds = new Vector2();
+		velocity = new Vector2();
 		sprite = screen.atlas.createSprite("cGreen");
 	}
 
 	public void render(SpriteBatch batch) {
+		System.out.println(bounds);
 		batch.draw(sprite, bounds.x, bounds.y);
 	}
 
-	public abstract void update();
+	public void update(float delta) {
+		bounds.x += velocity.x * delta;
+		bounds.y += velocity.y * delta;
+		// y += (speed_y - 0.5 * acceleration * delta_time) * delta_time;
+		// speed_y -= acceleration * delta_time;
+	}
 }
