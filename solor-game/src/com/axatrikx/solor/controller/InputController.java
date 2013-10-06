@@ -8,7 +8,7 @@ import com.badlogic.gdx.input.GestureDetector.GestureListener;
 import com.badlogic.gdx.math.Vector2;
 
 /**
- * Input controller for handling input.
+ * Input controller for handling input in game levels.
  * 
  * @author Amal Bose
  * 
@@ -61,9 +61,7 @@ public class InputController implements GestureListener {
 	 */
 	@Override
 	public boolean fling(float velocityX, float velocityY, int button) {
-		// TODO Auto-generated method stub
-		System.out.println(velocityX);
-		return false;
+		return screen.handleFling(velocityX, velocityY, button);
 	}
 
 	/*
