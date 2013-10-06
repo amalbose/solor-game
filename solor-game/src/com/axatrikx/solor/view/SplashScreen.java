@@ -1,4 +1,4 @@
-package com.axatrikx.solor.screen;
+package com.axatrikx.solor.view;
 
 import static com.badlogic.gdx.scenes.scene2d.actions.Actions.delay;
 import static com.badlogic.gdx.scenes.scene2d.actions.Actions.fadeIn;
@@ -14,7 +14,13 @@ import com.badlogic.gdx.scenes.scene2d.utils.Drawable;
 import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
 import com.badlogic.gdx.utils.Scaling;
 
-public class SplashScreen extends AbstractScreen {
+/**
+ * Splash Screen class which will be shown up before the game.
+ * 
+ * @author Amal Bose
+ * 
+ */
+public class SplashScreen extends AbstractUIScreen {
 
 	private Image splashImage;
 
@@ -29,8 +35,7 @@ public class SplashScreen extends AbstractScreen {
 		// start playing the menu music
 		// game.getMusicManager().play(SolorMusic.MENU);
 
-		TextureRegion splashRegion = new TextureRegion(new Texture(
-				"images/splash.png"), 0, 0, 512, 301);
+		TextureRegion splashRegion = new TextureRegion(new Texture("images/splash.png"), 0, 0, 512, 301);
 		Drawable splashDrawable = new TextureRegionDrawable(splashRegion);
 
 		// here we create the splash image actor; its size is set when the
@@ -43,18 +48,29 @@ public class SplashScreen extends AbstractScreen {
 		splashImage.getColor().a = 0f;
 
 		// configure the fade-in/out effect on the splash image
-		splashImage.addAction(sequence(fadeIn(0.75f), delay(1.75f),
-				fadeOut(0.75f), new Action() {
-					@Override
-					public boolean act(float delta) {
-						// the last action will move to the next screen
-						game.setScreen(new MenuScreen(game));
-						return true;
-					}
-				}));
+		splashImage.addAction(sequence(fadeIn(0.75f), delay(1.75f, fadeOut(0.75f)), new Action() {
+			@Override
+			public boolean act(float delta) {
+				// the last action will move to the next screen
+				game.setScreen(game.getMenuScreen());
+				return true;
+			}
+		}));
 
 		// and finally we add the actor to the stage
 		stage.addActor(splashImage);
+	}
+
+	@Override
+	public void resize(int width, int height) {
+		super.resize(width, height);
+
+		// resize the splash image
+		splashImage.setWidth(width);
+		splashImage.setHeight(height);
+
+		// we need a complete redraw
+		splashImage.invalidateHierarchy();
 	}
 
 	@Override
