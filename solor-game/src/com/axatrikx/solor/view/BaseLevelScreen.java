@@ -1,7 +1,10 @@
 package com.axatrikx.solor.view;
 
+import sun.net.www.content.text.plain;
+
 import com.axatrikx.solor.Solor;
 import com.axatrikx.solor.controller.InputController;
+import com.axatrikx.solor.domain.Player;
 import com.axatrikx.solor.utils.GameProperties;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.GL10;
@@ -40,5 +43,23 @@ public abstract class BaseLevelScreen extends AbstractScreen {
 		Gdx.gl.glClear(GL10.GL_COLOR_BUFFER_BIT);
 		camera.update();
 		batch.setProjectionMatrix(camera.combined);
+	}
+
+	/*
+	 * Input Controller methods
+	 */
+	public boolean handleFling(float velocityX, float velocityY, int button) {
+		if (Math.abs(velocityX) > Math.abs(velocityY)) {
+			flingHorizontal(velocityX);
+		} else if (Math.abs(velocityY) > Math.abs(velocityX)) {
+			flingVertical(velocityY);
+		}
+		return false;
+	}
+
+	protected void flingHorizontal(float velocityX) {
+	}
+
+	protected void flingVertical(float velocityY) {
 	}
 }

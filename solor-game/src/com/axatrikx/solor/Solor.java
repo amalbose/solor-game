@@ -1,7 +1,7 @@
 package com.axatrikx.solor;
 
+import com.axatrikx.solor.view.LevelScreen;
 import com.axatrikx.solor.view.MenuScreen;
-import com.axatrikx.solor.view.SplashScreen;
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Screen;
 
@@ -26,7 +26,7 @@ public class Solor extends Game {
 	 * @return
 	 */
 	private Screen getSplashScreen() {
-		return new SplashScreen(this);
+		return new LevelScreen(this); // FIXME change to SplashScreen.
 	}
 
 	@Override
