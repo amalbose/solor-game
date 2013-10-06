@@ -2,8 +2,6 @@ solor-game
 ==========
 a cross platform game using libgdx. The game can be compiled to Android, Desktop and HTML5.
 
-Note:
-The libgdx update file used in this project is from https://github.com/jrenner/libgdx-updater
 
 Prerequisites
 --------------
