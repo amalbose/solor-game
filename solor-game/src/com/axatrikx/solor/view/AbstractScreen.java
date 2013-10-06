@@ -28,7 +28,6 @@ public abstract class AbstractScreen implements Screen {
 		this.game = game;
 		batch = new SpriteBatch();
 		font = new BitmapFont();
-		Gdx.input.setInputProcessor(new GestureDetector(new InputController()));
 	}
 
 	protected String getName() {

@@ -3,6 +3,7 @@
  */
 package com.axatrikx.solor.controller;
 
+import com.axatrikx.solor.view.BaseLevelScreen;
 import com.badlogic.gdx.input.GestureDetector.GestureListener;
 import com.badlogic.gdx.math.Vector2;
 
@@ -14,7 +15,15 @@ import com.badlogic.gdx.math.Vector2;
  */
 public class InputController implements GestureListener {
 
-	/* (non-Javadoc)
+	BaseLevelScreen screen;
+
+	public InputController(BaseLevelScreen screen) {
+		this.screen = screen;
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see com.badlogic.gdx.input.GestureDetector.GestureListener#touchDown(float, float, int, int)
 	 */
 	@Override
@@ -23,7 +32,9 @@ public class InputController implements GestureListener {
 		return false;
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see com.badlogic.gdx.input.GestureDetector.GestureListener#tap(float, float, int, int)
 	 */
 	@Override
@@ -32,7 +43,9 @@ public class InputController implements GestureListener {
 		return false;
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see com.badlogic.gdx.input.GestureDetector.GestureListener#longPress(float, float)
 	 */
 	@Override
@@ -41,7 +54,9 @@ public class InputController implements GestureListener {
 		return false;
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see com.badlogic.gdx.input.GestureDetector.GestureListener#fling(float, float, int)
 	 */
 	@Override
@@ -51,7 +66,9 @@ public class InputController implements GestureListener {
 		return false;
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see com.badlogic.gdx.input.GestureDetector.GestureListener#pan(float, float, float, float)
 	 */
 	@Override
@@ -60,7 +77,9 @@ public class InputController implements GestureListener {
 		return false;
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see com.badlogic.gdx.input.GestureDetector.GestureListener#panStop(float, float, int, int)
 	 */
 	@Override
@@ -69,7 +88,9 @@ public class InputController implements GestureListener {
 		return false;
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see com.badlogic.gdx.input.GestureDetector.GestureListener#zoom(float, float)
 	 */
 	@Override
@@ -78,8 +99,11 @@ public class InputController implements GestureListener {
 		return false;
 	}
 
-	/* (non-Javadoc)
-	 * @see com.badlogic.gdx.input.GestureDetector.GestureListener#pinch(com.badlogic.gdx.math.Vector2, com.badlogic.gdx.math.Vector2, com.badlogic.gdx.math.Vector2, com.badlogic.gdx.math.Vector2)
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see com.badlogic.gdx.input.GestureDetector.GestureListener#pinch(com.badlogic.gdx.math.Vector2,
+	 * com.badlogic.gdx.math.Vector2, com.badlogic.gdx.math.Vector2, com.badlogic.gdx.math.Vector2)
 	 */
 	@Override
 	public boolean pinch(Vector2 initialPointer1, Vector2 initialPointer2, Vector2 pointer1, Vector2 pointer2) {

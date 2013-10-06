@@ -4,9 +4,12 @@
 package com.axatrikx.solor.view;
 
 import com.axatrikx.solor.Solor;
+import com.axatrikx.solor.controller.InputController;
+import com.axatrikx.solor.utils.GameProperties;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.GL10;
 import com.badlogic.gdx.graphics.OrthographicCamera;
+import com.badlogic.gdx.input.GestureDetector;
 
 /**
  * The BaseLevel Screen which extends AbstractScreen. Along with initializations done by parent AbstractScreen, BaseLevelScreen
@@ -15,14 +18,15 @@ import com.badlogic.gdx.graphics.OrthographicCamera;
  * @author Amal Bose
  * 
  */
-public class BaseLevelScreen extends AbstractScreen {
+public abstract class BaseLevelScreen extends AbstractScreen {
 
 	OrthographicCamera camera;
 
 	public BaseLevelScreen(Solor game) {
 		super(game);
 		camera = new OrthographicCamera();
-		camera.setToOrtho(false, 800, 480);
+		camera.setToOrtho(false, GameProperties.GAME_VIEWPORT_WIDTH, GameProperties.GAME_VIEWPORT_HEIGHT);
+		Gdx.input.setInputProcessor(new GestureDetector(new InputController(this)));
 	}
 
 	/*
@@ -45,62 +49,5 @@ public class BaseLevelScreen extends AbstractScreen {
 		// tell the SpriteBatch to render in the
 		// coordinate system specified by the camera.
 		batch.setProjectionMatrix(camera.combined);
-
 	}
-
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see com.badlogic.gdx.Screen#resize(int, int)
-	 */
-	@Override
-	public void resize(int width, int height) {
-		// TODO Auto-generated method stub
-
-	}
-
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see com.badlogic.gdx.Screen#show()
-	 */
-	@Override
-	public void show() {
-		// TODO Auto-generated method stub
-
-	}
-
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see com.badlogic.gdx.Screen#hide()
-	 */
-	@Override
-	public void hide() {
-		// TODO Auto-generated method stub
-
-	}
-
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see com.badlogic.gdx.Screen#pause()
-	 */
-	@Override
-	public void pause() {
-		// TODO Auto-generated method stub
-
-	}
-
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see com.badlogic.gdx.Screen#resume()
-	 */
-	@Override
-	public void resume() {
-		// TODO Auto-generated method stub
-
-	}
-
 }

@@ -27,8 +27,8 @@ public abstract class AbstractUIScreen extends AbstractScreen {
 
 	public AbstractUIScreen(Solor game) {
 		super(game);
-		int width = (isGameScreen() ? GameProperties.GAME_VIEWPORT_WIDTH : GameProperties.MENU_VIEWPORT_WIDTH);
-		int height = (isGameScreen() ? GameProperties.GAME_VIEWPORT_HEIGHT : GameProperties.MENU_VIEWPORT_HEIGHT);
+		int width = GameProperties.GAME_VIEWPORT_WIDTH;
+		int height = GameProperties.GAME_VIEWPORT_HEIGHT;
 		this.stage = new Stage(width, height, true);
 	}
 

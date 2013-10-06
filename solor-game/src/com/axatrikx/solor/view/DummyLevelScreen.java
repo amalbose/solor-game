@@ -6,6 +6,7 @@ package com.axatrikx.solor.view;
 import java.util.Iterator;
 
 import com.axatrikx.solor.Solor;
+import com.axatrikx.solor.utils.GameProperties;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input.Keys;
 import com.badlogic.gdx.audio.Sound;
@@ -42,7 +43,7 @@ public class DummyLevelScreen extends BaseLevelScreen {
 
 		// create a Rectangle to logically represent the bucket
 		bucket = new Rectangle();
-		bucket.x = 800 / 2 - 64 / 2; // center the bucket horizontally
+		bucket.x = GameProperties.GAME_VIEWPORT_WIDTH / 2 - 64 / 2; // center the bucket horizontally
 		bucket.y = 20; // bottom left corner of the bucket is 20 pixels above
 						// the bottom screen edge
 		bucket.width = 64;
@@ -56,8 +57,8 @@ public class DummyLevelScreen extends BaseLevelScreen {
 
 	private void spawnRaindrop() {
 		Rectangle raindrop = new Rectangle();
-		raindrop.x = MathUtils.random(0, 800 - 64);
-		raindrop.y = 480;
+		raindrop.x = MathUtils.random(0, GameProperties.GAME_VIEWPORT_WIDTH - 64);
+		raindrop.y = GameProperties.GAME_VIEWPORT_HEIGHT;
 		raindrop.width = 64;
 		raindrop.height = 64;
 		raindrops.add(raindrop);
@@ -67,6 +68,7 @@ public class DummyLevelScreen extends BaseLevelScreen {
 	@Override
 	public void render(float delta) {
 		super.render(delta);
+		
 		// begin a new batch and draw the bucket and
 		// all drops
 		batch.begin();

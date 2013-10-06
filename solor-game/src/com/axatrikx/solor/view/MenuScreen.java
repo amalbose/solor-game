@@ -37,7 +37,7 @@ public class MenuScreen extends AbstractUIScreen {
 		startGameButton.addListener(new ClickListener(){
 			
 			public void clicked (InputEvent event, float x, float y) {
-			game.setScreen(new DummyLevelScreen(game));
+			game.setScreen(new LevelScreen(game));
 			dispose();
 			}
 			
@@ -47,7 +47,14 @@ public class MenuScreen extends AbstractUIScreen {
 
 		// register the button "options"
 		TextButton optionsButton = new TextButton("Options", getSkin());
-		//optionsButton.addListener(new DefaultActorListener());
+		optionsButton.addListener(new ClickListener(){
+			
+			public void clicked (InputEvent event, float x, float y) {
+			game.setScreen(new DummyLevelScreen(game));
+			dispose();
+			}
+			
+		});
 		table.add(optionsButton).uniform().fill().spaceBottom(10);
 		table.row();
 
