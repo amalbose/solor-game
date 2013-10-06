@@ -1,4 +1,4 @@
-package com.axatrikx.beans;
+package com.axatrikx.solor.beans;
 
 /**
  * 

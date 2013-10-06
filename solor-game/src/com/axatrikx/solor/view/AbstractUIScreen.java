@@ -1,7 +1,7 @@
 package com.axatrikx.solor.view;
 
 import com.axatrikx.solor.Solor;
-import com.axatrikx.utils.GameProperties;
+import com.axatrikx.solor.utils.GameProperties;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.graphics.GL20;

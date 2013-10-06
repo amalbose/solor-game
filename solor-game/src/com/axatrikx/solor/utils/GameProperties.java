@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.axatrikx.utils;
+package com.axatrikx.solor.utils;
 
 /**
  * @author Amal Bose

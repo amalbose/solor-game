@@ -1,6 +1,6 @@
-package com.axatrikx.domain;
+package com.axatrikx.solor.domain;
 
-import com.axatrikx.beans.Shape;
+import com.axatrikx.solor.beans.Shape;
 
 /**
  * @author Amal Bose
