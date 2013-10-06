@@ -1,9 +1,16 @@
 package com.axatrikx.solor;
 
-import com.axatrikx.solor.screen.SplashScreen;
+import com.axatrikx.solor.view.MenuScreen;
+import com.axatrikx.solor.view.SplashScreen;
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Screen;
 
+/**
+ * The Main Game class.
+ * 
+ * @author Amal Bose
+ * 
+ */
 public class Solor extends Game {
 
 	public static final boolean DEV_MODE = false;
@@ -28,7 +35,6 @@ public class Solor extends Game {
 	}
 
 	public Screen getMenuScreen() {
-		// TODO Auto-generated method stub
-		return null;
+		return new MenuScreen(this);
 	}
 }
