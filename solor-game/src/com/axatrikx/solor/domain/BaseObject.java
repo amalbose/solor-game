@@ -17,8 +17,10 @@ public abstract class BaseObject {
 	LevelScreen screen;
 
 	public Shape shape;
+	
+	public String color;
 
-	Vector2 bounds;
+	public Vector2 bounds;
 
 	private Rectangle rectange;
 

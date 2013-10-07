@@ -38,8 +38,9 @@ public class LevelScreen extends BaseLevelScreen {
 
 		// init platforms
 
-		platforms.add(new BasePlatform(this, new Vector2(130, 300), "pRed"));
-		platforms.add(new BasePlatform(this, new Vector2(230, 100), "pGreen"));
+		platforms.add(new BasePlatform(this, "pRed", new Vector2(130, 300)));
+		platforms.add(new BasePlatform(this, "pGreen", new Vector2(230, 100)));
+		platforms.add(new BasePlatform(this, "pYellow", new Vector2(880, 100)));
 	}
 
 	/**
@@ -57,8 +58,14 @@ public class LevelScreen extends BaseLevelScreen {
 
 		player.update(delta);
 
-		for (BasePlatform platform : platforms) {
+		// Side Scroller
+		if (player.bounds.x > camera.position.x + GameProperties.GAME_VIEWPORT_WIDTH / 2) {
+			camera.position.x = camera.position.x + GameProperties.GAME_VIEWPORT_WIDTH;
+		} else if (player.bounds.x < camera.position.x - GameProperties.GAME_VIEWPORT_WIDTH / 2) {
+			camera.position.x = camera.position.x - GameProperties.GAME_VIEWPORT_WIDTH;
+		}
 
+		for (BasePlatform platform : platforms) {
 			if (player.platforming == 0 && Intersector.overlaps(platform.getCollisionCirle(), player.getRectangle())) {
 				player.intersected(platform);
 			}

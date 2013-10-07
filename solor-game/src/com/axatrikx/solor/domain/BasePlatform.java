@@ -9,7 +9,7 @@ public class BasePlatform extends BaseObject {
 
 	Circle collisionCircle;
 
-	public BasePlatform(LevelScreen screen, Vector2 bounds, String textureName) {
+	public BasePlatform(LevelScreen screen, String textureName, Vector2 bounds) {
 		super(screen, textureName, bounds, false);
 		collisionCircle = new Circle(bounds.x + sprite.getWidth() / 2, bounds.y + sprite.getHeight() / 2,
 				sprite.getWidth() / 2);
