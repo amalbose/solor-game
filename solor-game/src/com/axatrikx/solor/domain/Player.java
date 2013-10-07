@@ -34,15 +34,9 @@ public class Player extends BaseObject {
 			if (bounds.x < 0) {
 				bounds.x = 0;
 				velocity.x = 0;
-			}/* else if (bounds.x > GameProperties.GAME_VIEWPORT_WIDTH - sprite.getHeight()) {
-				bounds.x = GameProperties.GAME_VIEWPORT_WIDTH - sprite.getWidth();
-				velocity.x = 0;
-			}*/
+			}
 			if (bounds.y < 0) {
 				bounds.y = 0;
-				velocity.y = 0;
-			} else if (bounds.y > GameProperties.GAME_VIEWPORT_HEIGHT - sprite.getHeight()) {
-				bounds.y = GameProperties.GAME_VIEWPORT_HEIGHT - sprite.getHeight();
 				velocity.y = 0;
 			}
 

@@ -64,6 +64,12 @@ public class LevelScreen extends BaseLevelScreen {
 		} else if (player.bounds.x < camera.position.x - GameProperties.GAME_VIEWPORT_WIDTH / 2) {
 			camera.position.x = camera.position.x - GameProperties.GAME_VIEWPORT_WIDTH;
 		}
+		// Top Down scroller
+		if (player.bounds.y > camera.position.y + GameProperties.GAME_VIEWPORT_HEIGHT / 2) {
+			camera.position.y = camera.position.y + GameProperties.GAME_VIEWPORT_HEIGHT;
+		} else if (player.bounds.y < camera.position.y - GameProperties.GAME_VIEWPORT_HEIGHT / 2) {
+			camera.position.y = camera.position.y - GameProperties.GAME_VIEWPORT_HEIGHT;
+		}
 
 		for (BasePlatform platform : platforms) {
 			if (player.platforming == 0 && Intersector.overlaps(platform.getCollisionCirle(), player.getRectangle())) {
