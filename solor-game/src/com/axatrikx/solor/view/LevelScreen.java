@@ -5,7 +5,6 @@ import com.axatrikx.solor.domain.BasePlatform;
 import com.axatrikx.solor.domain.Player;
 import com.axatrikx.solor.utils.GameProperties;
 import com.badlogic.gdx.math.Intersector;
-import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.utils.Array;
 

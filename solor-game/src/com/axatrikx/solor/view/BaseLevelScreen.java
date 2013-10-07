@@ -59,4 +59,9 @@ public abstract class BaseLevelScreen extends AbstractScreen {
 
 	protected void flingVertical(float velocityY) {
 	}
+	
+	public void dispose(){
+		super.dispose();
+		atlas.dispose();
+	}
 }

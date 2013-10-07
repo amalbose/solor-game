@@ -1,15 +1,9 @@
-/**
- * 
- */
 package com.axatrikx.solor.view;
 
 import com.axatrikx.solor.Solor;
-import com.axatrikx.solor.controller.InputController;
-import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.badlogic.gdx.input.GestureDetector;
 
 /**
  * The AbstractScreen class will be extended by all screen classes. It initializes SpriteBatch and BitmapFont.

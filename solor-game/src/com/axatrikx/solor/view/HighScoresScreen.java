@@ -4,7 +4,6 @@
 package com.axatrikx.solor.view;
 
 import com.axatrikx.solor.Solor;
-import com.badlogic.gdx.Screen;
 
 /**
  * @author Amal Bose
