@@ -1,9 +1,9 @@
 package com.axatrikx.solor.domain;
 
-import com.axatrikx.solor.beans.Shape;
 import com.axatrikx.solor.view.LevelScreen;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
 
 /**
@@ -18,32 +18,34 @@ public abstract class BaseObject {
 
 	public Shape shape;
 
-	public Vector2 bounds;
+	Vector2 bounds;
 
-	public Vector2 velocity;
+	private Rectangle rectange;
 
 	Sprite sprite;
 
 	public boolean isPlayer;
 
-	public boolean isAlive;
-
-	public BaseObject(LevelScreen screen) {
+	public BaseObject(LevelScreen screen, String spriteName, Vector2 bounds, boolean isPlayer) {
 		this.screen = screen;
-		bounds = new Vector2();
-		velocity = new Vector2();
-		sprite = screen.atlas.createSprite("cGreen");
+		this.isPlayer = isPlayer;
+		this.bounds = bounds;
+		sprite = screen.atlas.createSprite(spriteName);
+		rectange = new Rectangle(bounds.x, bounds.y, sprite.getWidth(), sprite.getHeight());
 	}
 
 	public void render(SpriteBatch batch) {
-		System.out.println(bounds);
 		batch.draw(sprite, bounds.x, bounds.y);
 	}
 
-	public void update(float delta) {
-		bounds.x += velocity.x * delta;
-		bounds.y += velocity.y * delta;
-		// y += (speed_y - 0.5 * acceleration * delta_time) * delta_time;
-		// speed_y -= acceleration * delta_time;
+	public void setBounds(float x, float y) {
+		bounds.x = x;
+		bounds.y = y;
+	}
+
+	public Rectangle getRectangle() {
+		rectange.x = bounds.x;
+		rectange.y = bounds.y;
+		return rectange;
 	}
 }
