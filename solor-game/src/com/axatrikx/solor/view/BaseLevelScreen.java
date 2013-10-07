@@ -1,10 +1,7 @@
 package com.axatrikx.solor.view;
 
-import sun.net.www.content.text.plain;
-
 import com.axatrikx.solor.Solor;
 import com.axatrikx.solor.controller.InputController;
-import com.axatrikx.solor.domain.Player;
 import com.axatrikx.solor.utils.GameProperties;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.GL10;
@@ -39,7 +36,7 @@ public abstract class BaseLevelScreen extends AbstractScreen {
 	 */
 	@Override
 	public void render(float delta) {
-		Gdx.gl.glClearColor(0, 0, 0.2f, 1);
+		Gdx.gl.glClearColor(0.86f, 0.85f, 0.71f, 1);
 		Gdx.gl.glClear(GL10.GL_COLOR_BUFFER_BIT);
 		camera.update();
 		batch.setProjectionMatrix(camera.combined);

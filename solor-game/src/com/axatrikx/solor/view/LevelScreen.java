@@ -1,9 +1,13 @@
 package com.axatrikx.solor.view;
 
 import com.axatrikx.solor.Solor;
+import com.axatrikx.solor.domain.BasePlatform;
 import com.axatrikx.solor.domain.Player;
 import com.axatrikx.solor.utils.GameProperties;
+import com.badlogic.gdx.math.Intersector;
+import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
+import com.badlogic.gdx.utils.Array;
 
 /**
  * @author Amal Bose
@@ -16,6 +20,7 @@ public class LevelScreen extends BaseLevelScreen {
 	private static float VEL_REDUCTION_FACTOR = 0.1f; // Factor by which fling velocity should be reduced.
 
 	Player player;
+	Array<BasePlatform> platforms;
 
 	/**
 	 * @param game
@@ -29,8 +34,13 @@ public class LevelScreen extends BaseLevelScreen {
 	 * 
 	 */
 	private void initObjects() {
-		player = new Player(this);
-		player.bounds = getPlayerSpawnPosition();
+		player = new Player(this, getPlayerSpawnPosition());
+		platforms = new Array<BasePlatform>();
+
+		// init platforms
+
+		platforms.add(new BasePlatform(this, new Vector2(130, 300), "pRed"));
+		platforms.add(new BasePlatform(this, new Vector2(230, 100), "pGreen"));
 	}
 
 	/**
@@ -48,8 +58,23 @@ public class LevelScreen extends BaseLevelScreen {
 
 		player.update(delta);
 
+		for (BasePlatform platform : platforms) {
+
+			if (player.platforming == 0 && Intersector.overlaps(platform.getCollisionCirle(), player.getRectangle())) {
+				player.intersected(platform);
+			}
+		}
+
 		// draw player
 		batch.begin();
+		// load platforms
+		for (BasePlatform platform : platforms) {
+			platform.render(batch);
+		}
+
+		// load others
+
+		// load player at last.
 		player.render(batch);
 		batch.end();
 
@@ -120,7 +145,6 @@ public class LevelScreen extends BaseLevelScreen {
 		if (modX < MIN_VEL) {
 			velocityX = MIN_VEL * sign;
 		}
-		System.out.println("flinged x");
 		player.velocity.y = 0;
 		player.velocity.x = velocityX * VEL_REDUCTION_FACTOR;
 	}
@@ -135,7 +159,6 @@ public class LevelScreen extends BaseLevelScreen {
 		if (modY < MIN_VEL) {
 			velocityY = MIN_VEL * sign;
 		}
-		System.out.println("flinged y");
 		player.velocity.x = 0;
 		player.velocity.y = -1 * velocityY * VEL_REDUCTION_FACTOR;
 	}
