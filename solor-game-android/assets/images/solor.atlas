@@ -5,22 +5,43 @@ filter: Nearest,Nearest
 repeat: none
 cGreen
   rotate: false
-  xy: 2, 2
+  xy: 2, 36
   size: 32, 32
   orig: 32, 32
   offset: 0, 0
   index: -1
 cRed
   rotate: false
-  xy: 36, 2
+  xy: 392, 166
   size: 32, 32
   orig: 32, 32
   offset: 0, 0
   index: -1
 cYellow
   rotate: false
-  xy: 70, 2
+  xy: 2, 2
   size: 32, 32
   orig: 32, 32
+  offset: 0, 0
+  index: -1
+pGreen
+  rotate: false
+  xy: 2, 70
+  size: 128, 128
+  orig: 128, 128
+  offset: 0, 0
+  index: -1
+pRed
+  rotate: false
+  xy: 132, 70
+  size: 128, 128
+  orig: 128, 128
+  offset: 0, 0
+  index: -1
+pYellow
+  rotate: false
+  xy: 262, 70
+  size: 128, 128
+  orig: 128, 128
   offset: 0, 0
   index: -1
