@@ -17,7 +17,7 @@
  */
 package com.axatrikx.solor.controller;
 
-import com.axatrikx.solor.view.BaseLevelScreen;
+import com.axatrikx.solor.view.LevelScreen;
 import com.badlogic.gdx.input.GestureDetector.GestureListener;
 import com.badlogic.gdx.math.Vector2;
 
@@ -29,9 +29,9 @@ import com.badlogic.gdx.math.Vector2;
  */
 public class InputController implements GestureListener {
 
-	BaseLevelScreen screen;
+	LevelScreen screen;
 
-	public InputController(BaseLevelScreen screen) {
+	public InputController(LevelScreen screen) {
 		this.screen = screen;
 	}
 

@@ -18,9 +18,15 @@
 package com.axatrikx.solor.view;
 
 import com.axatrikx.solor.Solor;
+import com.axatrikx.solor.controller.InputController;
 import com.axatrikx.solor.domain.BasePlatform;
 import com.axatrikx.solor.domain.Player;
 import com.axatrikx.solor.utils.GameProperties;
+import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.graphics.GL10;
+import com.badlogic.gdx.graphics.OrthographicCamera;
+import com.badlogic.gdx.graphics.g2d.TextureAtlas;
+import com.badlogic.gdx.input.GestureDetector;
 import com.badlogic.gdx.math.Intersector;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.utils.Array;
@@ -29,11 +35,14 @@ import com.badlogic.gdx.utils.Array;
  * @author Amal Bose
  * 
  */
-public class LevelScreen extends BaseLevelScreen {
+public class LevelScreen extends AbstractScreen {
 
 	private static final float MAX_VEL = 6000;
 	private static final float MIN_VEL = 1500;
 	private static float VEL_REDUCTION_FACTOR = 0.1f; // Factor by which fling velocity should be reduced.
+
+	OrthographicCamera camera;
+	public TextureAtlas atlas;
 
 	Player player;
 	Array<BasePlatform> platforms;
@@ -43,6 +52,10 @@ public class LevelScreen extends BaseLevelScreen {
 	 */
 	public LevelScreen(Solor game) {
 		super(game);
+		camera = new OrthographicCamera();
+		camera.setToOrtho(false, GameProperties.GAME_VIEWPORT_WIDTH, GameProperties.GAME_VIEWPORT_HEIGHT);
+		Gdx.input.setInputProcessor(new GestureDetector(new InputController(this)));
+		atlas = new TextureAtlas(Gdx.files.internal("images/solor.atlas"));
 		initObjects();
 	}
 
@@ -71,7 +84,10 @@ public class LevelScreen extends BaseLevelScreen {
 
 	@Override
 	public void render(float delta) {
-		super.render(delta);
+		Gdx.gl.glClearColor(0.86f, 0.85f, 0.71f, 1);
+		Gdx.gl.glClear(GL10.GL_COLOR_BUFFER_BIT);
+		camera.update();
+		batch.setProjectionMatrix(camera.combined);
 
 		player.update(delta);
 
@@ -139,7 +155,7 @@ public class LevelScreen extends BaseLevelScreen {
 	@Override
 	public void hide() {
 		// TODO Auto-generated method stub
-
+		dispose();
 	}
 
 	/*
@@ -164,7 +180,6 @@ public class LevelScreen extends BaseLevelScreen {
 
 	}
 
-	@Override
 	protected void flingHorizontal(float velocityX) {
 		float modX = Math.abs(velocityX);
 		float sign = modX / velocityX;
@@ -178,7 +193,6 @@ public class LevelScreen extends BaseLevelScreen {
 		player.velocity.x = velocityX * VEL_REDUCTION_FACTOR;
 	}
 
-	@Override
 	protected void flingVertical(float velocityY) {
 		float modY = Math.abs(velocityY);
 		float sign = modY / velocityY;
@@ -190,5 +204,19 @@ public class LevelScreen extends BaseLevelScreen {
 		}
 		player.velocity.x = 0;
 		player.velocity.y = -1 * velocityY * VEL_REDUCTION_FACTOR;
+	}
+
+	public boolean handleFling(float velocityX, float velocityY, int button) {
+		if (Math.abs(velocityX) > Math.abs(velocityY)) {
+			flingHorizontal(velocityX);
+		} else if (Math.abs(velocityY) > Math.abs(velocityX)) {
+			flingVertical(velocityY);
+		}
+		return false;
+	}
+
+	public void dispose() {
+		super.dispose();
+		atlas.dispose();
 	}
 }

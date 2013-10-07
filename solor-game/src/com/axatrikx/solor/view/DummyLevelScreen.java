@@ -35,7 +35,7 @@ import com.badlogic.gdx.utils.TimeUtils;
  * @author Amal Bose
  * 
  */
-public class DummyLevelScreen extends BaseLevelScreen {
+public class DummyLevelScreen extends LevelScreen {
 	Texture dropImage;
 	Texture bucketImage;
 	Sound dropSound;
