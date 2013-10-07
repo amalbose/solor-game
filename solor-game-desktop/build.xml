@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- WARNING: Eclipse auto-generated file.
+              Any modifications will be overwritten.
+              To include a user specific buildfile here, simply create one in the same
+              directory with the processing instruction <?eclipse.ant.import?>
+              as the first entry and export the buildfile again. --><project basedir="." default="build" name="solor-game-desktop">
+    <property environment="env"/>
+    <property name="assets.link" value="../solor-game-android/assets"/>
+    <property name="solor-game.location" value="../solor-game"/>
+    <property name="debuglevel" value="source,lines,vars"/>
+    <property name="target" value="1.6"/>
+    <property name="source" value="1.6"/>
+    <path id="solor-game.classpath">
+        <pathelement location="${solor-game.location}/bin"/>
+        <pathelement location="${solor-game.location}/libs/gdx.jar"/>
+    </path>
+    <path id="solor-game-desktop.classpath">
+        <pathelement location="bin"/>
+        <path refid="solor-game.classpath"/>
+        <pathelement location="libs/gdx-backend-lwjgl.jar"/>
+        <pathelement location="libs/gdx-backend-lwjgl-natives.jar"/>
+        <pathelement location="libs/gdx-natives.jar"/>
+    </path>
+    <target name="init">
+        <mkdir dir="bin"/>
+        <copy includeemptydirs="false" todir="bin">
+            <fileset dir="src">
+                <exclude name="**/*.launch"/>
+                <exclude name="**/*.java"/>
+            </fileset>
+        </copy>
+        <copy includeemptydirs="false" todir="bin">
+            <fileset dir="${assets.link}">
+                <exclude name="**/*.launch"/>
+                <exclude name="**/*.java"/>
+            </fileset>
+        </copy>
+    </target>
+    <target name="clean">
+        <delete dir="bin"/>
+    </target>
+    <target depends="clean" name="cleanall">
+        <ant antfile="build.xml" dir="${solor-game.location}" inheritAll="false" target="clean"/>
+    </target>
+    <target depends="build-subprojects,build-project" name="build"/>
+    <target name="build-subprojects">
+        <ant antfile="build.xml" dir="${solor-game.location}" inheritAll="false" target="build-project"/>
+    </target>
+    <target depends="init" name="build-project">
+        <echo message="${ant.project.name}: ${ant.file}"/>
+        <javac debug="true" debuglevel="${debuglevel}" destdir="bin" includeantruntime="false" source="${source}" target="${target}">
+            <src path="src"/>
+            <src path="${assets.link}"/>
+            <classpath refid="solor-game-desktop.classpath"/>
+        </javac>
+    </target>
+    <target description="Build all projects which reference this project. Useful to propagate changes." name="build-refprojects"/>
+    <target name="Main">
+        <java classname="com.axatrikx.solor.Main" failonerror="true" fork="yes">
+            <classpath refid="solor-game-desktop.classpath"/>
+        </java>
+    </target>
+</project>
