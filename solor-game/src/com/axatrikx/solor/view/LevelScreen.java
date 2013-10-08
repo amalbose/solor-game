@@ -21,6 +21,7 @@ import com.axatrikx.solor.Solor;
 import com.axatrikx.solor.controller.InputController;
 import com.axatrikx.solor.domain.BasePlatform;
 import com.axatrikx.solor.domain.Player;
+import com.axatrikx.solor.domain.Player.PlayerState;
 import com.axatrikx.solor.utils.GameProperties;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.GL10;
@@ -105,7 +106,8 @@ public class LevelScreen extends AbstractScreen {
 		}
 
 		for (BasePlatform platform : platforms) {
-			if (player.platforming == 0 && Intersector.overlaps(platform.getCollisionCirle(), player.getRectangle())) {
+			if (player.state == PlayerState.MOVING
+					&& Intersector.overlaps(platform.getCollisionCirle(), player.getRectangle())) {
 				player.intersected(platform);
 			}
 		}
