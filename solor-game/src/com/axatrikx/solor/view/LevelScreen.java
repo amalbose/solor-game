@@ -20,8 +20,10 @@ package com.axatrikx.solor.view;
 import com.axatrikx.solor.Solor;
 import com.axatrikx.solor.controller.InputController;
 import com.axatrikx.solor.domain.BasePlatform;
+import com.axatrikx.solor.domain.Color;
 import com.axatrikx.solor.domain.Player;
-import com.axatrikx.solor.domain.Player.PlayerState;
+import com.axatrikx.solor.domain.PlayerState;
+import com.axatrikx.solor.domain.Shape;
 import com.axatrikx.solor.utils.GameProperties;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.GL10;
@@ -40,7 +42,7 @@ public class LevelScreen extends AbstractScreen {
 
 	private static final float MAX_VEL = 6000;
 	private static final float MIN_VEL = 1500;
-	private static float VEL_REDUCTION_FACTOR = 0.1f; // Factor by which fling velocity should be reduced.
+	private static float VEL_REDUCTION_FACTOR = 0.15f; // Factor by which fling velocity should be reduced.
 
 	OrthographicCamera camera;
 	public TextureAtlas atlas;
@@ -69,9 +71,12 @@ public class LevelScreen extends AbstractScreen {
 
 		// init platforms
 
-		platforms.add(new BasePlatform(this, "pRed", new Vector2(130, 300)));
-		platforms.add(new BasePlatform(this, "pGreen", new Vector2(230, 100)));
-		platforms.add(new BasePlatform(this, "pYellow", new Vector2(880, 100)));
+		platforms.add(new BasePlatform(this, Shape.CIRCLE, Color.RED, new Vector2(120, 300)));
+		platforms.add(new BasePlatform(this, Shape.TRIANGE, Color.GREEN, new Vector2(250, 100)));
+		platforms.add(new BasePlatform(this, Shape.TRIANGE, Color.YELLOW, new Vector2(880, 100)));
+		platforms.add(new BasePlatform(this, Shape.CIRCLE, Color.GREEN, new Vector2(180, 530)));
+		platforms.add(new BasePlatform(this, Shape.CIRCLE, Color.RED, new Vector2(380, 300)));
+
 	}
 
 	/**

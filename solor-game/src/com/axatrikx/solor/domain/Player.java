@@ -28,10 +28,6 @@ import com.badlogic.gdx.math.Vector2;
  */
 public class Player extends BaseObject {
 
-	public enum PlayerState {
-		MOVING, PLATFORMED, DEAD, INTRANSITION, ATTRACTED;
-	}
-
 	float captureSpeed = 8000;
 
 	public PlayerState state;
@@ -40,7 +36,7 @@ public class Player extends BaseObject {
 	public BasePlatform attractingPlatform;
 
 	public Player(LevelScreen screen, Vector2 bounds) {
-		super(screen, "cGreen", bounds, true);
+		super(screen, Shape.CIRCLE, Color.GREEN, bounds, ObjectType.PLAYER);
 		state = PlayerState.MOVING;
 		velocity = new Vector2();
 	}

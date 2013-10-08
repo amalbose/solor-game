@@ -5,43 +5,85 @@ filter: Nearest,Nearest
 repeat: none
 cGreen
   rotate: false
-  xy: 2, 36
-  size: 32, 32
-  orig: 32, 32
+  xy: 2, 2
+  size: 64, 64
+  orig: 64, 64
   offset: 0, 0
   index: -1
 cRed
   rotate: false
-  xy: 392, 166
-  size: 32, 32
-  orig: 32, 32
+  xy: 782, 132
+  size: 64, 64
+  orig: 64, 64
   offset: 0, 0
   index: -1
 cYellow
   rotate: false
-  xy: 2, 2
-  size: 32, 32
-  orig: 32, 32
+  xy: 68, 2
+  size: 64, 64
+  orig: 64, 64
   offset: 0, 0
   index: -1
-pGreen
+pcGreen
   rotate: false
-  xy: 2, 70
+  xy: 2, 68
   size: 128, 128
   orig: 128, 128
   offset: 0, 0
   index: -1
-pRed
+pcRed
   rotate: false
-  xy: 132, 70
+  xy: 132, 68
   size: 128, 128
   orig: 128, 128
   offset: 0, 0
   index: -1
-pYellow
+pcYellow
   rotate: false
-  xy: 262, 70
+  xy: 262, 68
   size: 128, 128
   orig: 128, 128
+  offset: 0, 0
+  index: -1
+ptGreen
+  rotate: false
+  xy: 392, 68
+  size: 128, 128
+  orig: 128, 128
+  offset: 0, 0
+  index: -1
+ptRed
+  rotate: false
+  xy: 522, 68
+  size: 128, 128
+  orig: 128, 128
+  offset: 0, 0
+  index: -1
+ptYellow
+  rotate: false
+  xy: 652, 68
+  size: 128, 128
+  orig: 128, 128
+  offset: 0, 0
+  index: -1
+tGreen
+  rotate: false
+  xy: 848, 132
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+tRed
+  rotate: false
+  xy: 134, 2
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+tYellow
+  rotate: false
+  xy: 914, 132
+  size: 64, 64
+  orig: 64, 64
   offset: 0, 0
   index: -1

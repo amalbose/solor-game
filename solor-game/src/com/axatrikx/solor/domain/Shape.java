@@ -26,12 +26,11 @@ package com.axatrikx.solor.domain;
  */
 public enum Shape {
 
-	TRIANGE(1,"t"), 		// Triangle Falls into all other shapes, so lowest point.
-	CIRCLE(2,"c"), 			// Circle falls into Triangle and Circle, so greater point than triangle.
-	SQUARE(3,"s"), 			// Square falls into Square and Rectangle, so greater point than Circle.
-	RECTANGE(4,"r"), 		// Rectangle falls into Rectangle alone
-	SUPER(999,"x"); 		// Super doesn't fall into any shape. So max points.
-
+	TRIANGE(1, "t"), // Triangle Falls into all other shapes, so lowest point.
+	CIRCLE(2, "c"), // Circle falls into Triangle and Circle, so greater point than triangle.
+	SQUARE(3, "s"), // Square falls into Square and Rectangle, so greater point than Circle.
+	RECTANGE(4, "r"), // Rectangle falls into Rectangle alone
+	SUPER(999, "x"); // Super doesn't fall into any shape. So max points.
 	public String suffix;
 	public int point;
 

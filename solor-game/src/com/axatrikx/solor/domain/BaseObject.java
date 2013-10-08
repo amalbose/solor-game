@@ -31,30 +31,31 @@ import com.badlogic.gdx.math.Vector2;
  */
 public abstract class BaseObject {
 
-	LevelScreen screen;
-
-	public Shape shape;
-	
-	public String color;
-
+	Sprite sprite;
+	public Color color;
 	public Vector2 bounds;
-
+	public ObjectType objectType;
+	private LevelScreen screen;
+	private Shape shape;
 	private Rectangle rectange;
 
-	Sprite sprite;
-
-	public boolean isPlayer;
-
-	public BaseObject(LevelScreen screen, String spriteName, Vector2 bounds, boolean isPlayer) {
+	public BaseObject(LevelScreen screen, Shape shape, Color color, Vector2 bounds, ObjectType objectType) {
 		this.screen = screen;
-		this.isPlayer = isPlayer;
+		this.shape = shape;
+		this.objectType = objectType;
 		this.bounds = bounds;
-		sprite = screen.atlas.createSprite(spriteName);
+		this.color = color;
+		this.sprite = screen.atlas.createSprite(this.objectType.suffix + this.shape.suffix + color.name);
 		rectange = new Rectangle(bounds.x, bounds.y, sprite.getWidth(), sprite.getHeight());
 	}
 
 	public void render(SpriteBatch batch) {
 		batch.draw(sprite, bounds.x, bounds.y);
+	}
+
+	public void setShape(Shape shape) {
+		this.shape = shape;
+		sprite = screen.atlas.createSprite(this.objectType.suffix + this.shape.suffix + color.name);
 	}
 
 	public void setBounds(float x, float y) {
