@@ -26,20 +26,18 @@ package com.axatrikx.solor.domain;
  */
 public enum Shape {
 
-	TRIANGE(1), 		// Triangle Falls into all other shapes, so lowest point.
-	CIRCLE(2), 			// Circle falls into Triange and Circle, so greater point than triange.
-	SQUARE(3), 			// Square falls into Square and Rectange, so greater point than Circle.
-	RECTANGE(4), 		// Rectange falls into Rectange alone
-	SUPER(999); 		// Super doesnt fall into any shape. So max points.
+	TRIANGE(1,"t"), 		// Triangle Falls into all other shapes, so lowest point.
+	CIRCLE(2,"c"), 			// Circle falls into Triangle and Circle, so greater point than triangle.
+	SQUARE(3,"s"), 			// Square falls into Square and Rectangle, so greater point than Circle.
+	RECTANGE(4,"r"), 		// Rectangle falls into Rectangle alone
+	SUPER(999,"x"); 		// Super doesn't fall into any shape. So max points.
 
-	private int point;
+	public String suffix;
+	public int point;
 
-	Shape(int point) {
+	Shape(int point, String suffix) {
 		this.point = point;
-	}
-
-	private int getPoint() {
-		return this.point;
+		this.suffix = suffix;
 	}
 
 	/**
@@ -50,6 +48,6 @@ public enum Shape {
 	 * @return Returns TRUE if it can call, FALSE otherwise.
 	 */
 	public boolean fallIntoHole(Shape shapeOfHole) {
-		return shapeOfHole.getPoint() > getPoint();
+		return shapeOfHole.point > point;
 	}
 }
