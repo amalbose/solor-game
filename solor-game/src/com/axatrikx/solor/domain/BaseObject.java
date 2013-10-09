@@ -35,7 +35,7 @@ public abstract class BaseObject {
 	public Color color;
 	public Vector2 bounds;
 	public ObjectType objectType;
-	private LevelScreen screen;
+	LevelScreen screen;
 	private Shape shape;
 	private Rectangle rectange;
 
@@ -67,5 +67,13 @@ public abstract class BaseObject {
 		rectange.x = bounds.x;
 		rectange.y = bounds.y;
 		return rectange;
+	}
+	
+	/**
+	 * Change form when player is inside platform.
+	 */
+	protected void changeForm() {
+		this.color = Color.randomColor();
+		setShape(Shape.randomShape());
 	}
 }

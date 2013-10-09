@@ -19,8 +19,8 @@ package com.axatrikx.solor.domain;
 
 /**
  * @author Amal Bose
- *
+ * 
  */
 public enum PlayerState {
-	MOVING, PLATFORMED, DEAD, INTRANSITION, ATTRACTED;
+	MOVING, PLATFORMED, DEAD, ATTRACTED;
 }

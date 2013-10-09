@@ -17,6 +17,11 @@
  */
 package com.axatrikx.solor.domain;
 
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
+import java.util.Random;
+
 /**
  * 
  * Shape enum which defines each shape and checks if a shape can fall into a hole.
@@ -27,10 +32,10 @@ package com.axatrikx.solor.domain;
 public enum Shape {
 
 	TRIANGE(1, "t"), // Triangle Falls into all other shapes, so lowest point.
-	CIRCLE(2, "c"), // Circle falls into Triangle and Circle, so greater point than triangle.
-	SQUARE(3, "s"), // Square falls into Square and Rectangle, so greater point than Circle.
-	RECTANGE(4, "r"), // Rectangle falls into Rectangle alone
-	SUPER(999, "x"); // Super doesn't fall into any shape. So max points.
+	CIRCLE(2, "c"); // Circle falls into Triangle and Circle, so greater point than triangle.
+	//SQUARE(3, "s"), // Square falls into Square and Rectangle, so greater point than Circle.
+	//RECTANGE(4, "r"), // Rectangle falls into Rectangle alone
+	//SUPER(999, "x"); // Super doesn't fall into any shape. So max points.
 	public String suffix;
 	public int point;
 
@@ -48,5 +53,13 @@ public enum Shape {
 	 */
 	public boolean fallIntoHole(Shape shapeOfHole) {
 		return shapeOfHole.point > point;
+	}
+
+	private static final List<Shape> VALUES = Collections.unmodifiableList(Arrays.asList(values()));
+	private static final int SIZE = VALUES.size();
+	private static final Random RANDOM = new Random();
+
+	public static Shape randomShape() {
+		return VALUES.get(RANDOM.nextInt(SIZE));
 	}
 }

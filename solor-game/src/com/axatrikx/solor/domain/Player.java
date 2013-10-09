@@ -18,7 +18,14 @@
 package com.axatrikx.solor.domain;
 
 import com.axatrikx.solor.view.LevelScreen;
+import com.badlogic.gdx.Screen;
+import com.badlogic.gdx.graphics.Pixmap;
+import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.TextureData;
+import com.badlogic.gdx.graphics.g2d.Sprite;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Vector2;
+import com.badlogic.gdx.utils.Array;
 
 /**
  * The player class.
@@ -82,8 +89,17 @@ public class Player extends BaseObject {
 				state = PlayerState.PLATFORMED;
 				velocity.x = 0;
 				velocity.y = 0;
+				processChangeForm();
 			}
 		}
+	}
+
+	/**
+	 * 
+	 */
+	private void processChangeForm() {
+		changeForm();
+		attractingPlatform.changeForm();
 	}
 
 	public void intersected(BasePlatform platform) {
