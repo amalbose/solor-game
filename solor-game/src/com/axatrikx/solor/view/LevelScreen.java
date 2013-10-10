@@ -28,6 +28,7 @@ import com.axatrikx.solor.utils.GameProperties;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.GL10;
 import com.badlogic.gdx.graphics.OrthographicCamera;
+import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.input.GestureDetector;
 import com.badlogic.gdx.math.Intersector;
@@ -46,9 +47,14 @@ public class LevelScreen extends AbstractScreen {
 
 	OrthographicCamera camera;
 	public TextureAtlas atlas;
-
+	Texture backgroundTexture;
+	Texture backgroundTexture1;
+	int textureW, textureH, texture1X, texture2X, texture1Y, texture2Y;
 	Player player;
 	Array<BasePlatform> platforms;
+	private int tmp;
+	private Texture backgroundTexture2;
+	private Texture backgroundTexture3;
 
 	/**
 	 * @param game
@@ -77,6 +83,15 @@ public class LevelScreen extends AbstractScreen {
 		platforms.add(new BasePlatform(this, Shape.CIRCLE, Color.GREEN, new Vector2(180, 530)));
 		platforms.add(new BasePlatform(this, Shape.CIRCLE, Color.RED, new Vector2(380, 300)));
 
+		backgroundTexture = new Texture(Gdx.files.internal("images/background.png"));
+		backgroundTexture1 = backgroundTexture;
+		backgroundTexture2 = backgroundTexture;
+		backgroundTexture3 = backgroundTexture;
+		textureW = backgroundTexture.getWidth();
+		textureH = backgroundTexture.getHeight();
+		texture2X = texture1X + textureW;
+		texture2Y = texture1Y + textureH;
+
 	}
 
 	/**
@@ -90,7 +105,7 @@ public class LevelScreen extends AbstractScreen {
 
 	@Override
 	public void render(float delta) {
-		Gdx.gl.glClearColor(0.86f, 0.85f, 0.71f, 1);
+		Gdx.gl.glClearColor(0, 0, 0, 1);
 		Gdx.gl.glClear(GL10.GL_COLOR_BUFFER_BIT);
 		camera.update();
 		batch.setProjectionMatrix(camera.combined);
@@ -119,6 +134,41 @@ public class LevelScreen extends AbstractScreen {
 
 		// draw player
 		batch.begin();
+
+		// draw background
+		// batch.draw(backgroundTexture, 0, 0, backgroundTexture.getWidth(), backgroundTexture.getHeight());
+
+		if (camera.position.x - textureW / 2 > texture2X) {
+			tmp = texture1X;
+			texture1X = texture2X;
+			texture2X = tmp + textureW;
+		}
+		if (camera.position.x - textureW / 2 < texture1X) {
+			texture2X = texture1X;
+			texture1X = texture1X - textureW;
+		}
+		if (camera.position.y - textureH / 2 > texture2Y) {
+			tmp = texture1Y;
+			texture1Y = texture2Y;
+			texture2Y = tmp + textureH;
+		}
+		if (camera.position.y - textureW / 2 < texture1Y) {
+			texture2Y = texture1Y;
+			texture1Y = texture2Y - textureH;
+		}
+
+		System.out.println();
+		
+		batch.draw(backgroundTexture, texture1X, texture1Y, textureW, textureH);
+		batch.draw(backgroundTexture1, texture2X, texture1Y, textureW, textureH);
+		batch.draw(backgroundTexture2, texture1X, texture2Y, textureW, textureH);
+		batch.draw(backgroundTexture3, texture2X, texture2Y, textureW, textureH);
+
+		/*
+		 * if (camera.position.x > textureX + textureW * 2) { // backgroundTexture1 is out of screen. textureX = textureX +
+		 * textureW * 2; }
+		 */
+
 		// load platforms
 		for (BasePlatform platform : platforms) {
 			platform.render(batch);

@@ -18,6 +18,7 @@
 package com.axatrikx.solor.domain;
 
 import com.axatrikx.solor.view.LevelScreen;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Vector2;
 
 /**
@@ -85,6 +86,10 @@ public class Player extends BaseObject {
 				processChangeForm();
 			}
 		}
+	}
+
+	public void render(SpriteBatch batch) {
+		batch.draw(sprite, bounds.x, bounds.y);
 	}
 
 	/**
