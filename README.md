@@ -1,6 +1,6 @@
 solor-game
 ==========
-[![Stories in Ready](https://badge.waffle.io/axatrikx/solor-game.png)](http://waffle.io/axatrikx/solor-game)
+[![Stories in Ready](https://badge.waffle.io/axatrikx/solor-game.png?label=Ready)](http://waffle.io/axatrikx/solor-game)
 
 A cross platform game using libgdx. The game can be compiled to Android, Desktop.
 
