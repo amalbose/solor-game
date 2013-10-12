@@ -1,0 +1,89 @@
+
+solor.png
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+cGreen
+  rotate: false
+  xy: 2, 2
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+cRed
+  rotate: false
+  xy: 782, 132
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+cYellow
+  rotate: false
+  xy: 68, 2
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+pcGreen
+  rotate: false
+  xy: 2, 68
+  size: 128, 128
+  orig: 128, 128
+  offset: 0, 0
+  index: -1
+pcRed
+  rotate: false
+  xy: 132, 68
+  size: 128, 128
+  orig: 128, 128
+  offset: 0, 0
+  index: -1
+pcYellow
+  rotate: false
+  xy: 262, 68
+  size: 128, 128
+  orig: 128, 128
+  offset: 0, 0
+  index: -1
+ptGreen
+  rotate: false
+  xy: 392, 68
+  size: 128, 128
+  orig: 128, 128
+  offset: 0, 0
+  index: -1
+ptRed
+  rotate: false
+  xy: 522, 68
+  size: 128, 128
+  orig: 128, 128
+  offset: 0, 0
+  index: -1
+ptYellow
+  rotate: false
+  xy: 652, 68
+  size: 128, 128
+  orig: 128, 128
+  offset: 0, 0
+  index: -1
+tGreen
+  rotate: false
+  xy: 848, 132
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+tRed
+  rotate: false
+  xy: 134, 2
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+tYellow
+  rotate: false
+  xy: 914, 132
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
