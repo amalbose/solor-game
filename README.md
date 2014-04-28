@@ -1,7 +1,7 @@
 solor-game
 ==========
 
-a cross platform game using libgdx
+a cross platform game
 
 Project moved to Bitbucket as private project.   https://bitbucket.org/amalbose/solor-game
 
